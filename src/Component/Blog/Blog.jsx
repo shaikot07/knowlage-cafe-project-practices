@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { FaBeer,FaBookmark } from 'react-icons/fa';
 const Blog = ({blog, handleAddBookmark,handleMarkAsRead}) => {
-      const {title,cover,author_img,author,posted_date,hashtags,reading_time}=blog;
+      const {id,title,cover,author_img,author,posted_date,hashtags,reading_time}=blog;
       return (
-            <div className='mb-20 space-y-4'>
+            <div className='mb-20'>
                   <img className=' mb-8' src={cover} alt={`Cover picture of title ${title}`} />
                   <div className='flex justify-between mb-4 '>
                   <div className='flex mt-4'>
@@ -24,7 +24,7 @@ const Blog = ({blog, handleAddBookmark,handleMarkAsRead}) => {
                               hashtags.map((hash,idx )=> <span key={idx}><a>#{hash}</a></span>)
                         }
                   </p>
-                  <button onClick={()=>handleMarkAsRead(reading_time)} className='text-purple-600 font-bold underline'>Mark as Red</button>
+                  <button onClick={()=>handleMarkAsRead(id,reading_time)} className='text-purple-600 font-bold underline'>Mark as Red</button>
             </div>
       );
 };
